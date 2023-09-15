@@ -1,0 +1,1 @@
+(()=>{"use strict";document.addEventListener("DOMContentLoaded",(()=>{!function(){const e=document.getElementById("project-container"),t=document.createElement("input");t.type="text",e.appendChild(t)}()}))})();
