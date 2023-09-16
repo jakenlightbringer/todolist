@@ -1,1 +1,1 @@
-(()=>{"use strict";document.addEventListener("DOMContentLoaded",(()=>{!function(){const e=document.getElementById("project-container"),t=document.createElement("input");t.type="text",e.appendChild(t)}()}))})();
+(()=>{"use strict";document.addEventListener("DOMContentLoaded",(()=>{!function(){const e=document.getElementById("project-container"),t=document.createElement("input");t.type="text",t.placeholder="Enter Title...",t.value="titleInput";var n=t.value;console.log(n),e.appendChild(t)}()}))})();
