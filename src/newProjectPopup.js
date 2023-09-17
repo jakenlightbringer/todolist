@@ -1,9 +1,11 @@
 function projectPopup(){
-    const projectContainer = document.getElementById("project-container");
-    const openButton = document.getElementById('new-button');
+    const popupContainer = document.getElementById('popup-container');
+
+    popupContainer.style.display = 'block';
 
     
 
 
 
 }
+export default projectPopup;

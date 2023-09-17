@@ -14,10 +14,16 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: 'images/', // This is where the images will be copied to in the output directory
+              name: 'images/[name].[ext]', // Change the output path for images
             },
           },
+        ],
+      },
+      {
+        test: /\.css$/, // Match CSS files
+        use: [
+          'style-loader', // Injects styles into the DOM
+          'css-loader',   // Loads CSS files
         ],
       },
     ],
