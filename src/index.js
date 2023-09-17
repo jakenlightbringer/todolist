@@ -5,23 +5,13 @@ import './styles.css';
 
 
 
-const buttonContainer = document.getElementById('new-button');
-
-function plusButton(){
-    
-
-    const newButtonImage = document.createElement('img');
-    newButtonImage.src = addProject;
-    newButtonImage.style.height = "25px";
-    newButtonImage.style.width = "25px";
-    
-    buttonContainer.appendChild(newButtonImage);
-}
-buttonContainer.addEventListener('click', ()=>{
-    projectPopup();
-});
 
 document.addEventListener('DOMContentLoaded', () =>{
-    sampleProject();
-    plusButton();
+    const newButtonProject = document.getElementById("new-button");
+
+    newButtonProject.addEventListener('click', () => {
+        projectPopup();
+    });
+    
+    
 });
