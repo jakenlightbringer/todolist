@@ -10,41 +10,26 @@
 <body>
     
     <div class="sidebar-header">Projects</div>
-        <ul class=sidebar-container>
+        <ul id=sidebar-container>
             <li class="starred-container">
-                <button class="starred">Starred</button>
+                <button id="starred">Starred</button>
             </li>
             <li class="sample-project-container">
-                <button class="sample-project-btn">Sample Project</button>
-            </li>
-            <li class="plus-button-container">
-                <button class="plus-button">Add New Project</button>
-            </li>
-            
+                <button id="sample-project-btn">Sample Project</button>
+            </li>   
         </ul>
     <div class="new-project-button">
         <button id="new-button">
             <img src="/home/jake/todolist/src/add.png" id="new-button-image">
         </button>
     </div>
-    <div id="popup-container">
-        <div class="popup-content">
-            <button id="close-button">X</button>
-            <form id="project-popup-form">
-                <label for="title">Title: </label>
-                <input type="text" id="title" name="title" required>
-                <textarea id="description" name="description" rows="4" cols="40"></textarea>
-                <label for="priority">Priority:</label>
-                <select id="priority" name="priority">
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                </select>
+    <div id="add-project-popup">
+        <form id="add-project-form">
+            <label for="project">Project: </label>
+            <input type="text" id="project" name="project"> 
+            <input type="submit" value="Add Project">
+        </form>
 
-                <input type="submit" value="submit">
-            </form>
-        </div>
-        
     </div>
 
 
