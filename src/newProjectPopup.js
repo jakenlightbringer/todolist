@@ -22,8 +22,7 @@ function projectPopup() {
     projectButton.classList.add('project-button')
     projectButton.innerHTML = projectName;
 
-    const newProjectContainer = document.createElement('div');
-    projectContainer.appendChild(newProjectContainer);
+    
 
     sidebarArray.push(projectName);
     projectLi.appendChild(projectButton);
@@ -35,6 +34,7 @@ function projectPopup() {
     projectButton.addEventListener('click', ()=>{
       clearContents();
     })
+
     
   });
 
