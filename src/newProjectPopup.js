@@ -1,4 +1,5 @@
 import clearContents from "./clearContents";
+import todoList from "./sample";
 
 function projectPopup() {
   const addProjectPopup = document.getElementById("add-project-popup");
@@ -33,6 +34,8 @@ function projectPopup() {
 
     projectButton.addEventListener('click', ()=>{
       clearContents();
+      todoList.setCurrentProject(projectName);
+      //Set Current Project send to projectSwitcher => Send to sample.js To set the current project
     })
 
     

@@ -1,7 +1,11 @@
 function todoList() {
     const projectContainer = document.getElementById("project-container");
+    const projectTodos = {};
+    let currentProject = null;
+    
   
     const toDoContainer = document.createElement('div');
+    toDoContainer.id = 'todo-container'
   
     const toDoInput = document.createElement('input');
     toDoInput.type = 'text';
@@ -17,27 +21,43 @@ function todoList() {
       if (toDoText !== '') {
         const toDoItem = document.createElement('li');
         toDoItem.innerHTML = toDoText;
+
+        projectTodos[currentProject].push(toDoItem.innerText);
+        
+
+        const arrayTest = document.createElement('div');
+        arrayTest.innerHTML = todoArray;
+        
   
         const deleteButton = document.createElement('button');
         deleteButton.innerHTML = 'Delete';
         deleteButton.addEventListener('click', () => {
           toDoContainer.removeChild(toDoItem);
+          projectTodos[currentProject] = projectTodos[currentProject].filter(item => item !== todoList.innerHTML);
         });
   
         toDoItem.appendChild(deleteButton);
         toDoContainer.appendChild(toDoItem);
+        
+        
+       
   
-        // Clear the input field
+        
         toDoInput.value = '';
       }
     });
   
-    // Append input and button to the todo container
+   
     toDoContainer.appendChild(toDoInput);
     toDoContainer.appendChild(addToDoButton);
   
-    // Append the todo container to the project container
+    
     projectContainer.appendChild(toDoContainer);
+
+
+
+
+
   }
   
   export default todoList;
