@@ -1,9 +1,5 @@
 #add-project-popup{
-    display: none;
-}
-.new-project-button{
-    display: flex;
-    justify-content: flex-end;
+   display: none;
 }
 #new-button > img{
     height: 30px;

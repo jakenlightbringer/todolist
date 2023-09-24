@@ -1,0 +1,8 @@
+1. Have User Input a Project to Sidebar using a popup
+2. Allow user to input todolist on the sidebar  
+    2a. Add inputted todolist item to an array
+        -Need research if array needs to be of entire string of the LI element? 
+    2b. Add delete button with each of the to do items and an edit button
+    2c. save array, display per project name
+3. When switching to new project clear the display and redisplay the new project's todo's
+4. Local storage
