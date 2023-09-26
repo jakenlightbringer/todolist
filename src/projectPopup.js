@@ -48,7 +48,7 @@ function popup(){
             listContainer.classList.add('list-container');
 
             //Think need make lkist element 
-            const todoItems = document.createElement('div');
+            const todoItems = document.createElement('li');
             const todoInput = document.createElement('input');
             todoInput.placeholder = 'Add New Task!';
             const todoSubmit = document.createElement('button');

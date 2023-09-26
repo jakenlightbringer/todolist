@@ -27,6 +27,12 @@ module.exports = {
           'css-loader',   // Loads CSS files
         ],
       },
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
     ],
   },
 };

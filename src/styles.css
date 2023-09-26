@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "Noto";
+    font-style: normal;
+    font-weight: normal;
+    src: url(./fonts/NotoSansOsmanya-Regular.woff) format(woff);
+}
+
 *{
     background-color: lightgray;
 }
@@ -5,7 +12,21 @@
 #add-project-popup{
    display: none;
 }
-#new-button > img{
+#new-button{
+    border: 0;
+}
+#new-button-image{
     height: 30px;
     width: 30px;
+    display: flex;
+    justify-content: flex-end;
+    
 }
+
+/* Start of Header */
+.sidebar-header{
+    display: flex;
+    font-size: 50px;
+    font-family: "Noto", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/*Project Button */
