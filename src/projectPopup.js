@@ -29,16 +29,25 @@ function popup(){
         popupForm.reset();
     });
     function switchToProject(index){
-        // Update your UI to display the selected project based on the index
-        // For example, you can set the content of a div to the selected project name
+        
         const projectName = document.getElementById('current-project-name');
-        const todoArray = [];
+        
+
+        const storedTodoItems = JSON.parse(localStorage.getItem(projectList[index])) || [];
+
+        const todoArray = storedTodoItems;
+
         projectName.textContent = projectList[index];
         const toDoContainer = document.createElement('div');
         const addToDoButton = document.createElement('button');
+        
+        
         addToDoButton.innerHTML = 'Add ToDo';
         addToDoButton.addEventListener('click', ()=>{
             const listContainer = document.createElement('div');
+            listContainer.classList.add('list-container');
+
+            //Think need make lkist element 
             const todoItems = document.createElement('div');
             const todoInput = document.createElement('input');
             todoInput.placeholder = 'Add New Task!';
@@ -49,18 +58,42 @@ function popup(){
                 const todoValue = todoInput.value;
                 todoArray.push(todoValue);
                 todoItems.innerHTML = todoArray;
+                const deleteListItem = document.createElement('button');
+                deleteListItem.innerHTML = 'Delete Item';
+                todoItems.appendChild(deleteListItem);
+                deleteListItem.addEventListener('click', ()=>{
+                    const indexToRemove = todoArray.indexOf(todoValue);
 
+                    if(indexToRemove !== -1){
+                        todoArray.splice(indexToRemove, 1);
+                        listContainer.removeChild(todoItems);
+                        todoSubmit.style.display = 'none';
+                    }
+                });
+
+                localStorage.setItem(projectList[index], JSON.stringify(todoArray));
 
             })
             todoItems.appendChild(todoInput);
-            todoItems.appendChild(todoSubmit);
+            listContainer.appendChild(todoSubmit);
             listContainer.appendChild(todoItems);
             projectName.appendChild(listContainer);
             
             
         });
-        toDoContainer.appendChild(addToDoButton);
-        projectName.appendChild(toDoContainer);
+        const listContainer = document.createElement('div');
+        const todoItems = document.createElement('div');
+        todoArray.forEach((todoItem) => {
+        const todoItemDiv = document.createElement('div');
+        todoItemDiv.textContent = todoItem;
+        todoItems.appendChild(todoItemDiv);
+    });
+
+    listContainer.appendChild(todoItems);
+    toDoContainer.appendChild(addToDoButton);
+    toDoContainer.appendChild(listContainer);
+    projectName.appendChild(toDoContainer);
+
     }
    
 

@@ -1,3 +1,7 @@
+*{
+    background-color: lightgray;
+}
+
 #add-project-popup{
    display: none;
 }
