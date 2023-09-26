@@ -3,10 +3,7 @@ function popup(){
     const popupButton = document.getElementById('new-button');
     const popupContainer = document.getElementById('add-project-popup');
     const popupForm = document.getElementById('add-project-form');
-
-    const currentproject = {
-        projectName: this.projectName
-    }
+    const projectList = [];
 
     popupButton.addEventListener('click', () =>{
         popupContainer.style.display = 'block';
@@ -14,67 +11,58 @@ function popup(){
     popupForm.addEventListener('submit', (e)=>{
         e.preventDefault();
         //popupContainer.style.display = 'none';
-        //button added to li 
         const sideBarItem = document.createElement('li');
+        const sideBarButton = document.createElement('button');
         const sideBarValue = document.getElementById('project').value;
-        sideBarItem.innerHTML = sideBarValue;
-        sideBarContainer.appendChild(sideBarItem);
-        popupForm.reset();
-
-    });
-   
-
-}
-export default popup;
-
-
-
-/*
-
-    const projectList = []; // Array to store projects
-
-   
-
-    popupForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const sideBarItem = document.createElement('li');
-        const sideBarValue = document.getElementById('project').value;
-
-        // Add the new project to the array
+        sideBarButton.innerHTML = sideBarValue;
         projectList.push(sideBarValue);
+        
 
-        // Set the innerHTML of the sidebar item to the new project
-        sideBarItem.innerHTML = sideBarValue;
-
-        // Create a project button for switching to this project
-        const projectButton = document.createElement('button');
-        projectButton.textContent = sideBarValue;
-        projectButton.addEventListener('click', () => {
-            // Find the index of the clicked project button in the array
+        sideBarButton.addEventListener('click', ()=>{
             const index = projectList.indexOf(sideBarValue);
-            if (index !== -1) {
-                // Switch to the selected project
+            if(index !== -1){
                 switchToProject(index);
             }
         });
-
-        // Append the project button to the sidebar container
-        sideBarContainer.appendChild(projectButton);
-
+        sideBarItem.appendChild(sideBarButton);
+        sideBarContainer.appendChild(sideBarItem);
         popupForm.reset();
-        popupContainer.style.display = 'none';
     });
-
-    // Function to switch to a specific project
-    function switchToProject(index) {
+    function switchToProject(index){
         // Update your UI to display the selected project based on the index
         // For example, you can set the content of a div to the selected project name
-        // Example: document.getElementById('current-project-name').textContent = projectList[index];
+        const projectName = document.getElementById('current-project-name');
+        const todoArray = [];
+        projectName.textContent = projectList[index];
+        const toDoContainer = document.createElement('div');
+        const addToDoButton = document.createElement('button');
+        addToDoButton.innerHTML = 'Add ToDo';
+        addToDoButton.addEventListener('click', ()=>{
+            const listContainer = document.createElement('div');
+            const todoItems = document.createElement('div');
+            const todoInput = document.createElement('input');
+            todoInput.placeholder = 'Add New Task!';
+            const todoSubmit = document.createElement('button');
+            todoSubmit.innerHTML = 'submit';
+
+            todoSubmit.addEventListener('click', ()=>{
+                const todoValue = todoInput.value;
+                todoArray.push(todoValue);
+                todoItems.innerHTML = todoArray;
+
+
+            })
+            todoItems.appendChild(todoInput);
+            todoItems.appendChild(todoSubmit);
+            listContainer.appendChild(todoItems);
+            projectName.appendChild(listContainer);
+            
+            
+        });
+        toDoContainer.appendChild(addToDoButton);
+        projectName.appendChild(toDoContainer);
     }
+   
+
 }
-
 export default popup;
-
-
-*/
